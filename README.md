@@ -6,3 +6,4 @@ Instalacion dependencias
  - npm install svelte --save
  - npm install @babel/core @babel/preset-env @babel/polyfill babel-loader svelte-loader --save-dev
  - npm install webpack webpack-cli html-webpack-plugin --save-dev
+ - npm install webpack-dev-server -D
