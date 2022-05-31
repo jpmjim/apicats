@@ -5,10 +5,10 @@
   import TimeLine from '../components/TimeLine.svelte';
   import Sidebar from '../components/Sidebar.svelte';
 
-  let data = {};
-  const API = "https://kittygram-api.vercel.app/"
+  let data = [];
+  const API = "https://kittygram-api.vercel.app";
   onMount(async () => {
-    const response = await fetch('API');
+    const response = await fetch(API);
     data = await response.json();
   });
 </script>
