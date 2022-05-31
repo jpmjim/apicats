@@ -6,6 +6,9 @@
   // transicion de nos provee svelte
   import { blur } from 'svelte/transition';
 
+  //importando nuestro contador
+  import { likeCount } from '../store/store.js';
+
   export let username;
   export let location;
   export let photo;
@@ -13,10 +16,27 @@
   export let comments;
   export let avatar;
 
+  //modal
   let isModal = false;
+  //like
+  let like = false;
+  let bookmark = false;
+
+  //modal
   function handelClick() {
     isModal = !isModal;
   }
+  //like
+  function handleLike() {
+    like = !like;
+    if(like) {
+      likeCount.update(n => n + 1);
+    } else {
+      likeCount.update(n => n - 1);
+    }
+
+  }
+
 </script>
 
 
@@ -98,15 +118,15 @@
   .Card-description span {
     font-size: 14px;
   }
-  /* .active-like {
-    color: #bc1888;
+  .active-like {
+    color: tomato;
     animation: bounce linear 0.8s;
     animation-iteration-count: 1;
     transform-origin: 20% 20%;
   }
   .active-bookmark {
     color: #f09433;
-  } */
+  }
 
   @keyframes bounce {
     0% {
@@ -158,17 +178,23 @@
       </div>
     </div>
     <div class="Card-photo">
-      <figure>
+      <figure on:dblclick={handleLike}>
         <img src={photo} alt={username}>
       </figure>
     </div>
     <div class="Card-icons">
       <div class="Card-icons-firts">
-        <i class="fas fa-heart" />
+        <i class="fas fa-heart"
+          class:active-like={like} 
+          on:click={handleLike}
+        />
         <i class="fas fa-paper-plane" on:click={handelClick} />
       </div>
       <div class="Card-icons-second">
-        <i class="fas fa-bookmark" />
+        <i class="fas fa-bookmark" 
+          class:active-bookmark={bookmark} 
+          on:click={() => {bookmark = !bookmark}}
+        />
       </div>
     </div>
     <div class="Card-description">
