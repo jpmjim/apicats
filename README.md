@@ -9,3 +9,5 @@ Instalacion dependencias
  - npm install webpack-dev-server -D
 
  -deploy dentro de netlify
+ 
+ Desarrollar con un base de datos.
