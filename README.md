@@ -11,3 +11,4 @@ Instalacion dependencias
  -deploy dentro de netlify
  
  Desarrollar con un base de datos.
+Utilizar react con vite y mongo
