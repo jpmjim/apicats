@@ -12,3 +12,4 @@ Instalacion dependencias
  
  Desarrollar con un base de datos.
 Utilizar react con vite y mongo
+- Resolver migraciones en typeorm
